@@ -9,9 +9,6 @@ import Product from "./Pages/Product/Product";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
 import "./App.scss"
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-</style>
 function App() {
   return (
     <div className="app">
