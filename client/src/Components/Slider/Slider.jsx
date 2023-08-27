@@ -7,18 +7,18 @@ const Slider = () => {
 
     const [currentSlide, setCurrentSlide] = useState(0);
 
-const data = [
-    "https://wallpaperaccess.com/full/5189190.jpg",
-    "https://wallpaperaccess.com/full/4061967.jpg",
-    "https://wallpaperaccess.com/full/5189161.jpg",
-];
+    const data = [
+        "https://wallpaperaccess.com/full/5189190.jpg",
+        "https://wallpaperaccess.com/full/4061967.jpg",
+        "https://wallpaperaccess.com/full/5189161.jpg",
+    ];
 
-const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? 2 : currentSlide -1);
-};
-const nextSlide = () => {
-    setCurrentSlide(currentSlide === 2 ? 0 : currentSlide +1);
-};
+    const prevSlide = () => {
+        setCurrentSlide(currentSlide === 0 ? 2 : currentSlide - 1);
+    };
+    const nextSlide = () => {
+        setCurrentSlide(currentSlide === 2 ? 0 : currentSlide + 1);
+    };
 
     return (
         <div className='slider'>
