@@ -29,10 +29,10 @@ const Slider = () => {
             </div>
             <div className="icons">
                 <div className="icon" onClick={prevSlide}>
-                    <WestOutlinedIcon />
+                    <WestOutlinedIcon style={{ color: "white" }}/>
                 </div>
                 <div className="icon" onClick={nextSlide}>
-                    <EastOutlinedIcon />
+                    <EastOutlinedIcon style={{ color: "white" }}/>
                 </div>
             </div>
         </div>
