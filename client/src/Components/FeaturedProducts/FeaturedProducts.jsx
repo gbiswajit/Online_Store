@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import './FeaturedProducts.scss'
 import Card from '../Card/Card';
 import axios from "axios"
+
 const FeaturedProducts = () => {
 
     const [data, setData] = useState([])
 
     useEffect (()=>{
-        const fetcchData= async()=>{
+        const fetchData= async()=>{
             try{
-                const res=await axios.get("http://localhost:1337/api"+"/products?populate=*", {
+                const res=await axios.get(process.env.REACT_APP_API_URL+`/products?populate=*&filters[type][$eq]=featured`, {
                     headers:{
-                        Authorization: "bearer" + "560e4ba022ce16556f2dfd7f14c3f55c2b7646c07c2859803e762dbb5e32de346d19ed911097cc7fe4c14e2437862ea736eff18d6e6d586986d54d92a060ba2592fcb00ada4d4ce59c36c0f08b95a7c41993a1b8db4bf08e1d15fbe793f83cf028e564a3648151cac2d3672eca5cb3f6f750e537c7930663c60b5bdbd2145df8",
+                        Authorization: "bearer" + process.env.REACT_APP_API_TOKEN,
                     },
                 })
                 setData(res.data.data)
@@ -21,7 +22,7 @@ const FeaturedProducts = () => {
                 console.log(err)
             }
         }
-        fetcchData()
+        fetchData()
     }, [])
 
     return (
