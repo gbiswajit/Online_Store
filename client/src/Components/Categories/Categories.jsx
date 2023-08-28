@@ -23,7 +23,7 @@ const Categories = () => {
                         alt=""
                     />
                     <button>
-                        <Link to="/products/1" className="link">
+                        <Link to="/products/2" className="link">
                             True Wireless
                         </Link>
                     </button>
@@ -37,7 +37,7 @@ const Categories = () => {
                         alt=""
                     />
                     <button>
-                        <Link to="/products/1" className="link">
+                        <Link to="/products/3" className="link">
                             Over-Ear
                         </Link>
                     </button>
@@ -52,7 +52,7 @@ const Categories = () => {
                                 alt=""
                             />
                             <button>
-                                <Link to="/products/1" className="link">
+                                <Link to="/products/4" className="link">
                                     Neck Band
                                 </Link>
                             </button>
@@ -66,7 +66,7 @@ const Categories = () => {
                                 alt=""
                             />
                             <button>
-                                <Link to="/products/1" className="link">
+                                <Link to="/products/5" className="link">
                                     Gaming
                                 </Link>
                             </button>
@@ -79,7 +79,7 @@ const Categories = () => {
                         alt=""
                     />
                     <button>
-                        <Link to="/products/1" className="link">
+                        <Link to="/products/6" className="link">
                             Sale
                         </Link>
                     </button>
