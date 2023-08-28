@@ -1,39 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './FeaturedProducts.scss'
 import Card from '../Card/Card';
-
+import axios from "axios"
 const FeaturedProducts = () => {
 
-    const data = [
-        {
-            id: 1,
-            img: "https://cdn.dotpe.in/longtail/store-items/7734548/l581jQXN.jpeg",
-            title: "boAt Airdopes 161",
-            oldPrice: 1299,
-            newPrice: 999
-        },
-        {
-            id: 2,
-            img: "https://hammeronline.in/cdn/shop/files/Hammer-bash-2-headphone-bm.webp?v=1689314785&width=800",
-            title: "Hammer Bash 2.0",
-            oldPrice: 2499,
-            newPrice: 1999
-        },
-        {
-            id: 3,
-            img: "https://www.boultaudio.com/cdn/shop/files/untitled.871_700x700.png?v=1676443803",
-            title: "Boult X1 Buds",
-            oldPrice: 499,
-            newPrice: 349
-        },
-        {
-            id: 4,
-            img: "https://bestheadset.in/wp-content/uploads/2022/10/realme-Techlife-Buds-T100-review.webp",
-            title: "realme Techlife Buds T100",
-            oldPrice: 1600,
-            newPrice: 1499
+    const [data, setData] = useState([])
+
+    useEffect (()=>{
+        const fetcchData= async()=>{
+            try{
+                const res=await axios.get("http://localhost:1337/api"+"/products?populate=*", {
+                    headers:{
+                        Authorization: "bearer" + "560e4ba022ce16556f2dfd7f14c3f55c2b7646c07c2859803e762dbb5e32de346d19ed911097cc7fe4c14e2437862ea736eff18d6e6d586986d54d92a060ba2592fcb00ada4d4ce59c36c0f08b95a7c41993a1b8db4bf08e1d15fbe793f83cf028e564a3648151cac2d3672eca5cb3f6f750e537c7930663c60b5bdbd2145df8",
+                    },
+                })
+                setData(res.data.data)
+                console.log(res.data)
+            }
+            catch(err){
+                console.log(err)
+            }
         }
-    ];
+        fetcchData()
+    }, [])
 
     return (
         <div className='featuredProducts'>

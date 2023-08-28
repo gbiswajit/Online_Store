@@ -7,12 +7,12 @@ const Card = ({ item }) => {
         <Link to={`/product/${item.id}`} className='link'>
             <div className='card'>
                 <div className="image">
-                    <img src={item.img} alt="" />
+                    <img src={"http://localhost:1337"+item.attributes?.img?.data?.attributes?.url} alt="" />
                 </div>
-                <h2>{item.title}</h2>
+                <h2>{item?.attributes.title}</h2>
                 <div className="prices">
-                    <h3>INR {item.oldPrice}</h3>
-                    <h3>INR {item.newPrice}</h3>
+                    <h3>INR {item?.attributes.oldPrice || item?.attributes.price+300}</h3>
+                    <h3>INR {item?.attributes.price}</h3>
                 </div>
             </div>
         </Link>
