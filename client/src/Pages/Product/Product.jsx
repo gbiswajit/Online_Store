@@ -7,10 +7,14 @@ import BalanceIcon from "@mui/icons-material/Balance";
 import "./Product.scss"
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
+import GoToTop from '../../Components/GoToTop';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../Redux/cartReducer';
 
 const Product = () => {
   const id = parseInt(useParams().id);
   //console.log(id)
+  const dispatch= useDispatch()
   const [quantity, setQuantity] = useState(1);
   const { data, loading, error } = useFetch(`/products/${id}?populate=*`);
 
@@ -50,7 +54,14 @@ const Product = () => {
                   {quantity}
                   <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
                 </div>
-                <button className="add">
+                <button className="add" onClick={()=>dispatch(addToCart({
+                  id: data.id,
+                  title: data.attributes.title,
+                  desc: data.attributes.desc,
+                  price: data.attributes.price,
+                  img: data.attributes.img.data.attributes.url,
+                  quantity
+                }))}>
                   <AddShoppingCartIcon /> ADD TO CART
                 </button>
                 <div className="links">
@@ -75,6 +86,7 @@ const Product = () => {
 
       </div>
       <Footer />
+      <GoToTop/>
     </div>
   )
 }

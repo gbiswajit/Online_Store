@@ -5,6 +5,7 @@ import Footer from '../../Components/Footer/Footer'
 import List from '../../Components/List/List'
 import { useParams } from 'react-router-dom'
 import useFetch from '../../Hooks/useFetch'
+import GoToTop from '../../Components/GoToTop';
 
 const Products = () => {
 
@@ -86,6 +87,7 @@ const Products = () => {
         </div>
       </div>
       <Footer />
+      <GoToTop/>
     </div>
   )
 }
