@@ -18,61 +18,63 @@ const Product = () => {
     <div>
       <Navbar />
       <div className='product'>
-      {loading ? (
-        "loading"
-      ) : (
-        <>
-        <div className="left">
-          <div className="mainImg">
-            <img
-              src={
-                process.env.REACT_APP_UPLOAD_URL +
-                data?.attributes?.img?.data?.attributes?.url
-              }
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="right">
-          <h1>{data?.attributes?.title}</h1>
-          <span className="price">INR {data?.attributes?.price}</span>
-          <p>{data?.attributes?.desc}</p>
-          <div className="quantity">
-            <button
-              onClick={() =>
-                setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
-              }
-            >
-              -
-            </button>
-            {quantity}
-            <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
-          </div>
-          <button className="add">
-            <AddShoppingCartIcon /> ADD TO CART
-          </button>
-          <div className="links">
-            <div className="item">
-              <FavoriteBorderIcon /> ADD TO WISH LIST
-            </div>
-            <div className="item">
-              <BalanceIcon /> ADD TO COMPARE
-            </div>
-          </div>
-          <hr />
-          <div className="info">
-            <span>DESCRIPTION</span>
-            <hr />
-            <span>ADDITIONAL INFORMATION</span>
-            <hr />
-            <span>FAQ</span>
-          </div>
-        </div>
-        </>
-      )}
+        {error
+          ? "Something went wrong!"
+          : loading ? (
+            "loading"
+          ) : (
+            <>
+              <div className="left">
+                <div className="mainImg">
+                  <img
+                    src={
+                      process.env.REACT_APP_UPLOAD_URL +
+                      data?.attributes?.img?.data?.attributes?.url
+                    }
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="right">
+                <h1>{data?.attributes?.title}</h1>
+                <span className="price">INR {data?.attributes?.price}</span>
+                <p>{data?.attributes?.desc}</p>
+                <div className="quantity">
+                  <button
+                    onClick={() =>
+                      setQuantity((prev) => (prev === 1 ? 1 : prev - 1))
+                    }
+                  >
+                    -
+                  </button>
+                  {quantity}
+                  <button onClick={() => setQuantity((prev) => prev + 1)}>+</button>
+                </div>
+                <button className="add">
+                  <AddShoppingCartIcon /> ADD TO CART
+                </button>
+                <div className="links">
+                  <div className="item">
+                    <FavoriteBorderIcon /> ADD TO WISH LIST
+                  </div>
+                  <div className="item">
+                    <BalanceIcon /> ADD TO COMPARE
+                  </div>
+                </div>
+                <hr />
+                <div className="info">
+                  <span>DESCRIPTION</span>
+                  <hr />
+                  <span>ADDITIONAL INFORMATION</span>
+                  <hr />
+                  <span>FAQ</span>
+                </div>
+              </div>
+            </>
+          )}
 
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
